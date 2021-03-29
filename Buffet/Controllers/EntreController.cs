@@ -1,0 +1,57 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Buffet.Models;
+
+namespace Buffet.Controllers
+{
+    public class EntreController : Controller
+    {
+        private readonly ILogger<EntreController> _logger;
+
+        public EntreController(ILogger<EntreController> logger)
+        {
+            _logger = logger;
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+        
+        public IActionResult Cadastro()
+        {
+            return View();
+        }
+        
+        public IActionResult Login()
+        {
+            return View();
+        }
+        
+        public IActionResult Termo()
+        {
+            return View();
+        }
+        
+        public IActionResult Recuperacao()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
+        }
+    }
+}
