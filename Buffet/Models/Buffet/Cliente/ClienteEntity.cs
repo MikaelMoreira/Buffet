@@ -17,6 +17,8 @@ namespace Buffet.Models.Buffet.Cliente
 
         public string Email { get; set; }
 
+        public string Endereco { get; set; }
+
         public string Observacao { get; set; }
 
         public DateTime DataDeinsercao { get; set; }
