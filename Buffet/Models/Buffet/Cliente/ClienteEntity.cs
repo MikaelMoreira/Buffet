@@ -24,5 +24,15 @@ namespace Buffet.Models.Buffet.Cliente
         public DateTime DataDeinsercao { get; set; }
 
         public DateTime DataDeModificacao { get; set; }
+
+        public ClienteEntity(TipoClienteEntity tipo, string nome, string cpf, string cnpj, DateTime dataDeNascimento, string email)
+        {
+            Tipo = tipo;
+            Nome = nome;
+            CPF = cpf;
+            CNPJ = cnpj;
+            DataDeNascimento = dataDeNascimento;
+            Email = email;
+        }
     }
 }

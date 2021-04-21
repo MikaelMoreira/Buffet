@@ -23,5 +23,14 @@ namespace Buffet.Models.Buffet.Convidado
         public DateTime DataDeinsercao { get; set; }
 
         public DateTime DataDeModificacao { get; set; }
+
+        public ConvidadoEntity(string nome, string cpf, DateTime dataDeNascimento, string email)
+        {
+            Nome = nome;
+            CPF = cpf;
+            DataDeNascimento = dataDeNascimento;
+            Email = email;
+        }
     }
+
 }

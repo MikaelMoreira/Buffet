@@ -26,5 +26,14 @@ namespace Buffet.Models.Buffet.Evento
         public DateTime DataDeinsercao { get; set; }
 
         public DateTime DataDeModificacao { get; set; }
+
+        public EventoEntity(string decricao, DateTime dataEHoraInic, DateTime dataEHoraFim, ClienteEntity cliente, Local local)
+        {
+            Decricao = decricao;
+            DataEHoraInic = dataEHoraInic;
+            DataEHoraFim = dataEHoraFim;
+            Cliente = cliente;
+            Local = local;
+        }
     }
 }

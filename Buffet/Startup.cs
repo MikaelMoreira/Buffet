@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Buffet.DataBase;
+using Buffet.Models.Acesso;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +27,29 @@ namespace Buffet
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+          services.AddDbContext<DataBaseContext>(optionsAction: option => 
+               
+             option.UseMySql(Configuration.GetConnectionString("BuffetDb")));
+
+            services.AddIdentity<Usuario, Papel>(options =>
+
+             {
+
+                options.User.RequireUniqueEmail = true;
+                options.Password.RequiredLength = 8;
+                
+                }
+                ).AddEntityFrameworkStores<DataBaseContext>();
+
+                services.ConfigureApplicationCookie(options =>
+
+             {
+
+                 options.LoginPath = "/Home/Login";
+             });
+
+            services.AddTransient<AcessoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +71,7 @@ namespace Buffet
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
