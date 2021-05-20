@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using Buffet.Models.Buffet.Evento;
 using Buffet.Models.Buffet.Situações;
 
@@ -6,11 +7,13 @@ namespace Buffet.Models.Buffet.Convidado
 {
     public class ConvidadoEntity
     {
+        [Key] public int Id { get; set; }
+        
         public string Nome { get; set; }
 
         public string CPF { get; set; }
         
-        public DateTime DataDeNascimento { get; set; }
+        public string DataDeNascimento { get; set; }
 
         public string Email { get; set; }
 
@@ -24,13 +27,25 @@ namespace Buffet.Models.Buffet.Convidado
 
         public DateTime DataDeModificacao { get; set; }
 
-        public ConvidadoEntity(string nome, string cpf, DateTime dataDeNascimento, string email)
+
+
+        public ConvidadoEntity()
         {
-            Nome = nome;
-            CPF = cpf;
-            DataDeNascimento = dataDeNascimento;
-            Email = email;
+
         }
+
+        public ConvidadoEntity(int id, string nome)
+        {
+            Id = id;
+            Nome = nome;
+        }
+
+
+
+
+
+
+
     }
 
 }

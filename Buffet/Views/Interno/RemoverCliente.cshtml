@@ -1,0 +1,35 @@
+
+@{
+    ViewData["Title"] = "RemoverCliente";
+}
+
+<h2>Remover gasto <strong>@Model.Descricao</strong></h2>
+<hr/>
+<a href="/">Voltar</a>
+<hr/>
+
+@if (@Model.FormMensagensErro != null) {
+    <ul>
+        @foreach (var msgErro in @Model.FormMensagensErro) {
+            <li>@msgErro</li>
+        }
+    </ul>
+}
+
+<form action="/Interno/RemoverCliente/@Model.Id" method="post">
+    <p>Dados do Cliente a remover</p>
+    <ul>
+        <li><strong>Id: </strong> @Model.Id</li>
+        <li><strong>Data: </strong> @Model.Data</li>
+        <li><strong>Descrição: </strong> @Model.Descricao</li>
+        <li><strong>Categoria: </strong> @Model.Categoria</li>
+        <li><strong>Valor: </strong> @Model.Valor</li>
+        <li><strong>É Recorrente? </strong> @Model.Recorrente</li>
+    </ul>
+    
+    <p><strong>Atenção:</strong> Essa operação não pode ser desfeita!</p>
+
+    <div>
+        <input name="confirmar" type="submit" value="Confirmar">
+    </div>
+</form>

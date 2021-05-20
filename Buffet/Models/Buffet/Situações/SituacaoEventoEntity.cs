@@ -1,8 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Buffet.Models.Buffet.Situações
 {
     public class SituacaoEventoEntity
     {
-        public int Id { get; set; }
+        [Key] public int Id { get; set; }
 
         public string Descricao { get; set; }
 
@@ -11,8 +13,18 @@ namespace Buffet.Models.Buffet.Situações
             Id = id;
             Descricao = descricao;
         }
+
+        public SituacaoEventoEntity()
+        {
+            
+        }
+
+
+
     }
-    
-    
-    
+
+
+
+
+
 }

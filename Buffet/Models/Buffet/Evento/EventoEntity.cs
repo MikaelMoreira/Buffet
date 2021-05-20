@@ -1,5 +1,8 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using Buffet.Models.Buffet.Cliente;
+using Buffet.Models.Buffet.Convidado;
+using Buffet.Models.Buffet.Local;
 using Buffet.Models.Buffet.Situações;
 using Buffet.Models.Buffet.Tipos;
 
@@ -7,19 +10,25 @@ namespace Buffet.Models.Buffet.Evento
 {
     public class EventoEntity
     {
+        [Key] public int Id { get; set; }
+        
         public TipoEventoEntity Tipo { get; set; }
 
-        public string Decricao { get; set; }
+        public string Descricao { get; set; }
 
-        public DateTime DataEHoraInic { get; set; }
+        public string DataInic { get; set; }
+        
+        public string HoraInic { get; set; }
 
-        public DateTime DataEHoraFim { get; set; }
+        public string DataFim { get; set; }
+        
+        public string HoraFim { get; set; }
 
         public ClienteEntity Cliente { get; set; }
 
         public SituacaoEventoEntity Situacao { get; set; }
 
-        public Local Local { get; set; }
+        public LocalEntity Local { get; set; }
 
         public string Observacao { get; set; }
         
@@ -27,13 +36,22 @@ namespace Buffet.Models.Buffet.Evento
 
         public DateTime DataDeModificacao { get; set; }
 
-        public EventoEntity(string decricao, DateTime dataEHoraInic, DateTime dataEHoraFim, ClienteEntity cliente, Local local)
+
+        public EventoEntity()
         {
-            Decricao = decricao;
-            DataEHoraInic = dataEHoraInic;
-            DataEHoraFim = dataEHoraFim;
-            Cliente = cliente;
-            Local = local;
+
         }
+
+        public EventoEntity(int id, string descricao)
+        {
+            Id = id;
+            Descricao = descricao;
+        }
+
+       
+
+
+
+
     }
 }

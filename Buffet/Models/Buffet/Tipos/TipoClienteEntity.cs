@@ -1,10 +1,13 @@
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.Numerics;
 
 namespace Buffet.Models.Buffet.Tipos
 {
     public class TipoClienteEntity
     {
-        public int Id { get; set; }
+        
+        [Key] public int Id { get; set; }
 
         public string Descricao { get; set; }
 
@@ -13,6 +16,15 @@ namespace Buffet.Models.Buffet.Tipos
         {
             Id = id;
             Descricao = descricao;
+        }
+
+        public TipoClienteEntity( int id)
+        {
+            Id = id;
+        }
+
+        public TipoClienteEntity()
+        {
         }
     }
 }

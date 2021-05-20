@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Lista de Cliente";
+}
+
+@using Buffet.Models.Buffet.Cliente
+@model Buffet.ViewModels.Cliente.ListaClienteViewModel;
+
+<div class="">
+    <div class="container py-5"> 
+            <div class="row">
+                <div class="col-md-12 mx-auto">
+                    <div class="card rounded-0">
+                        <div class="card-header">
+                            <h3 class="mb-0">Lista Clientes</h3>
+                            
+                            <table class="table table-striped">
+                                
+                            <thead>
+                                <tr>
+                                    <th class="bg-dark text-white">Nome Do Cliente</th>
+                                    <th class="bg-dark text-white">CPF/CNPJ</th>
+                                    <th class ="bg-dark text-white">Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach(ClienteEntity cliente in @Model.clientes){
+                                   <tr>
+                                       <td>@cliente.Nome</td>
+                                       <td>@cliente.CPF_CNPJ</td>
+                                       <td>
+                                           <a href="/Interno/EditarCliente/@cliente.Id">Editar</a>
+                                       <a href="/Interno/RemoverCliente/@cliente.Id" >Remover</a>
+
+
+                                       </td>
+                                   </tr>
+
+                               }         
+
+                            </tbody>
+
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

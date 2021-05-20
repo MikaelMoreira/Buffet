@@ -1,19 +1,25 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using Buffet.Models.Buffet.Tipos;
 
 namespace Buffet.Models.Buffet.Cliente
 {
     public class ClienteEntity
     {
+        public ClienteEntity()
+        {
+            
+        }
+
+        [Key] public int Id { get; set; }
+        
         public TipoClienteEntity Tipo { get; set; }
 
         public string Nome { get; set; }
 
-        public string CPF { get; set; }
+        public string CPF_CNPJ { get; set; }
 
-        public string CNPJ { get; set; }
-
-        public DateTime DataDeNascimento { get; set; }
+        public string DataDeNascimento { get; set; }
 
         public string Email { get; set; }
 
@@ -25,14 +31,20 @@ namespace Buffet.Models.Buffet.Cliente
 
         public DateTime DataDeModificacao { get; set; }
 
-        public ClienteEntity(TipoClienteEntity tipo, string nome, string cpf, string cnpj, DateTime dataDeNascimento, string email)
+
+        public ClienteEntity(int id, string nome)
         {
-            Tipo = tipo;
+            Id = id;
             Nome = nome;
-            CPF = cpf;
-            CNPJ = cnpj;
-            DataDeNascimento = dataDeNascimento;
-            Email = email;
         }
+
+        public ClienteEntity( string nome, string cpfCnpj)
+        {
+            Nome = nome;
+            CPF_CNPJ = cpfCnpj;
+        }
+
+
+
     }
 }

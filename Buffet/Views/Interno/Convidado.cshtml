@@ -1,0 +1,112 @@
+﻿@model Buffet.ViewModels.Convidado.ConvidadoViewModel
+
+@using Buffet.Models.Buffet.Situações
+@using Buffet.Models.Buffet.Evento
+
+@{
+    ViewData["Title"] = "Convidado";
+}
+
+<div class="cadastro-evento">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card rounded-0">
+                    <div class="card-header">
+
+                        <h3 class="mb-0">Cadastrar Convidado</h3>
+                    </div>
+
+                    @if (Model.mensagem_erro != null)
+                    {
+                        <ul>
+                            @foreach (var erro in Model.mensagem_erro)
+                            {
+                                <li> @erro</li>
+                            }
+
+
+                        </ul>
+                    }
+
+                    @if (Model.mensagem_sucesso != null)
+                    {
+                        <p> @Model.mensagem_sucesso</p>
+                    }
+
+                    <div class="card-body">
+                        <form class="form" role="form" autocomplete="off" id="form" novalidate="" action="/Interno/Convidado" method="POST">
+
+                            <div class="form-group">
+
+                                <label for="nomeCliente" class="form-label">Nome convidado: </label>
+                                <input type="text" class="form-control form-control-lg rounded-0" id="nome" name="Nome" required="" value="">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="CPF" class="form-label">CPF: </label>
+                                <input type="text" class="form-control form-control-lg rounded-0" id="CPF" name="CPF" required="" value="">
+
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="data" class="form-label">Data de Nascimento: </label>
+                                <input type="date" class="form-control form-control-lg rounded-0" id="DataDeNascimento" name="DataDeNascimento" value="">
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="Email" class="form-label">Email: </label>
+                                <input type="text" class="form-control form-control-lg rounded-0" id="email" name="Email" value="">
+                            </div>
+
+
+                            <div>
+                                 <label for="Evento" class="form-label">Evento: </label>
+                                     <select name="evento" class="form-control form-control-lg rounded-0">
+                                         <option value="">Evento...</option>
+
+                                         @foreach (EventoEntity evento in @Model.Eventos)
+                                          {
+
+                                                 <option value="@evento.Id">@evento.Descricao</option>
+                                          }
+                                      </select>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="Situacao" class="form-label">Situacao: </label>
+                                <select name="Situacao" class="form-control form-control-lg rounded-0">
+                                    <option value="">Situacao..</option>
+
+                                    @foreach (SituacaoConvidadoEntity situacao in @Model.Situacao)
+                                    {
+
+                                        <option value="@situacao.Id">@situacao.Descricao</option>
+                                    }
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="observação" class="form-label">Observação: </label>
+                                <input type="text" class="form-control form-control-lg rounded-0" id="observacao" name="Observacao" value="">
+                            </div>
+                            
+
+                            <br>
+                            <button type="submit" class="btn btn-primary bg-dark">Cadastrar</button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

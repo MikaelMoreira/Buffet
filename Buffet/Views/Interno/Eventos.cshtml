@@ -1,0 +1,151 @@
+@model Buffet.ViewModels.Evento.EventoViewModel
+@using Buffet.Models.Buffet.Tipos
+@using Buffet.Models.Buffet.Local
+@using Buffet.Models.Buffet.Cliente
+@using Buffet.Models.Buffet.Situações
+
+
+@{
+    ViewData["Title"] = "Eventos";
+}
+
+<div class="cadastro-evento">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card rounded-0">
+                    <div class="card-header">
+                        <h3 class="mb-0">Cadastro Eventos</h3>
+
+
+                        @if (Model.mensagem_erro != null)
+                        {
+                            <ul>
+                                @foreach (var erro in Model.mensagem_erro)
+                                {
+                                    <li> @erro</li>
+                                }
+
+                            </ul>
+                        }
+
+                        @if (Model.mensagem_sucesso != null)
+                        {
+                            <p> @Model.mensagem_sucesso</p>
+                        }
+
+                    </div>
+                    <div class="card-body">
+                        <form class="form" role="form" autocomplete="off" id="formEvento" novalidate="" action="/Interno/Eventos" method="POST">
+                            <input type="hidden" name="cpId" value="" />
+                            <div class="form-group">
+
+                                <label for="nomeEvento" class="form-label">Nome do Evento: </label>
+                                <input type="text" class="form-control form-control-lg rounded-0" id="nomeEvento" name="Nome" required="" value="">
+                                <div class="invalid-feedback">Necessita do nome do evento!</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dataInic" class="form-label">Data Inicial: </label>
+                                <input type="date" class="form-control form-control-lg rounded-0" id="dataInic" name="DataInic" value="">
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="horaInic" class="form-label">Hora Inicial: </label>
+                                <input type="time" class="form-control form-control-lg rounded-0" id="horaInic" name="HoraInic" value="">
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dataInic" class="form-label">Data Final: </label>
+                                <input type="date" class="form-control form-control-lg rounded-0" id="dataFim" name="DataFim" value="">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="horaInic" class="form-label">Hora Final: </label>
+                                <input type="time" class="form-control form-control-lg rounded-0" id="horaFim" name="HoraFim" value="">
+                            </div>
+
+                            <div>
+                                <label for="localEvento" class="form-label">Local do Evento: </label>
+                                <select name="Local" class="form-control form-control-lg rounded-0">
+                                    <option value="">Local...</option>
+
+                                    @foreach (LocalEntity local in @Model.local)
+                                    {
+
+                                        <option value="@local.Id">@local.Descricao</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tipoEvento" class="form-label">Tipo Evento: </label>
+                                <select name="Tipo" class="form-control form-control-lg rounded-0">
+                                    <option value="">Tipo...</option>
+
+                                    @foreach (TipoEventoEntity tipo in @Model.Tipo)
+                                    {
+
+                                        <option value="@tipo.Id">@tipo.Descricao</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Cliente" class="form-label">Cliente: </label>
+                                <select name="Cliente" class="form-control form-control-lg rounded-0">
+                                    <option value="">Cliente..</option>
+
+                                    @foreach (ClienteEntity cliente in @Model.Cliente)
+                                    {
+
+                                        <option value="@cliente.Id">@cliente.Nome</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Situacao" class="form-label">Situacao: </label>
+                                <select name="Situacao" class="form-control form-control-lg rounded-0">
+                                    <option value="">Situacao..</option>
+
+                                    @foreach (SituacaoEventoEntity situacao in @Model.Situacao)
+                                    {
+
+                                        <option value="@situacao.Id">@situacao.Descricao</option>
+                                    }
+
+                                </select>
+                            </div>
+
+
+
+
+
+                            <div>
+                                <label for="descricao" class="form-label">Descrição: </label>
+                                <input type="text" class="form-control form-control-lg rounded-0" id="descricao" name="Descricao" value="">
+                            </div>
+
+
+
+
+
+                            <div>
+                                <label for="observação" class="form-label">Observação: </label>
+                                <input type="text" class="form-control form-control-lg rounded-0" id="observacao" name="Observacao" value="">
+                            </div>
+
+
+                            <br>
+                            <button type="submit" class="btn btn-primary bg-dark">Cadastrar</button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,8 @@
 using System;
 using System.Threading.Tasks;
+using Buffet.Models.Buffet.User;
 using Microsoft.AspNetCore.Identity;
+
 
 namespace Buffet.Models.Acesso
 {
@@ -8,7 +10,9 @@ namespace Buffet.Models.Acesso
     {
         private readonly UserManager<Usuario> _userManager;
         private readonly SignInManager<Usuario> _signInManager;
-
+        
+        
+        
 
         public AcessoService(UserManager<Usuario> userManager, SignInManager<Usuario> signInManager)
         {
@@ -51,6 +55,6 @@ namespace Buffet.Models.Acesso
                 throw new LoginException("Usuário ou Senha inválidos");
             }
         }
-        
+
     };
 }

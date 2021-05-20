@@ -10,7 +10,7 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">KDelicia Buffet</a>
+      <a class="navbar-brand" asp-area="" asp-controller="Interno" asp-action="Index">KDelicia Buffet</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -30,9 +30,42 @@
               Seções
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" asp-area="" asp-controller="Interno" asp-action="Secao" >Seção1</a></li>
-              <li><a class="dropdown-item" >Seção2</a></li>
-              <li><a class="dropdown-item" >Seção3</a></li>
+             <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                           Cliente
+                         </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" asp-area="" asp-controller="Interno" asp-action="Cliente" >Cadastrar</a></li>
+                <li><a class="dropdown-item" asp-area="" asp-controller="Interno" asp-action="ListaCliente" >Lista</a></li>
+              </ul>
+              
+               <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                        Eventos
+                                       </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" asp-area="" asp-controller="Interno" asp-action="Eventos" >Cadastrar</a></li>
+                <li><a class="dropdown-item" asp-area="" asp-controller="Interno" asp-action="ListaCliente" >Lista</a></li>
+              </ul>
+              
+               <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                         Locais
+                                       </a>
+              
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" asp-area="" asp-controller="Interno" asp-action="Locais" >Cadastrar</a></li>
+                <li><a class="dropdown-item" asp-area="" asp-controller="Interno" asp-action="ListaCliente" >Lista</a></li>
+              </ul>
+              
+               <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                         Convidado
+                                       </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" asp-area="" asp-controller="Interno" asp-action="Convidado" >Cadastrar</a></li>
+                <li><a class="dropdown-item" asp-area="" asp-controller="Interno" asp-action="ListaCliente" >Lista</a></li>
+              </ul>
+              
+              
+
+              <li><a class="dropdown-item" asp-area="" asp-controller="Interno" asp-action="Configuracoes" >Configuraçôes</a></li>
             </ul>
           </li>
           <li class="nav-item active">

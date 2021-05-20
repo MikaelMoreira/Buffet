@@ -1,0 +1,62 @@
+@model Buffet.ViewModels.Local.LocalViewModel;
+
+@{
+    ViewData["Title"] = "Locais";
+}
+
+<div class="cadastro-evento">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card rounded-0">
+                    <div class="card-header">
+
+                        <h3 class="mb-0">Local</h3>
+                    </div>
+
+                    @if (Model.mensagem_erro != null)
+                    {
+                        <ul>
+                            @foreach (var erro in Model.mensagem_erro)
+                            {
+                                <li> @erro</li>
+                            }
+
+
+                        </ul>
+                    }
+
+                    @if (Model.mensagem_sucesso != null)
+                    {
+                        <p> @Model.mensagem_sucesso</p>
+                    }
+
+                    <div class="card-body">
+                        <form class="form" role="form" autocomplete="off" id="form" novalidate="" action="/Interno/Local" method="POST">
+
+                            <div class="form-group">
+
+                                <label for="Descricao" class="form-label">Descri��o: </label>
+                                <input type="text" class="form-control form-control-lg rounded-0" id="descricao" name="Descricao" required="" value="">
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="endereco" class="form-label">Endere�o: </label>
+                                <input type="text" class="form-control form-control-lg rounded-0" id="endere�o" name="Endereco" value="">
+                            </div>
+
+                            <br>
+                            <button type="submit" class="btn btn-primary bg-dark">Cadastrar</button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                         
